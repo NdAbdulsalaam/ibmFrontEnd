@@ -38,11 +38,13 @@ return(
 <input type ="text" align ="right" id= 'todoAdd'/>
 <button type ="submit">Add Todo</button>
 </form>
+<div>
   {todos.map((todo) =>
-  <ul className="todo" key={todo.id}>
+    // <ul className="todo" key={todo.id}>
     <li className="todo-text">{todo.text}</li>
-  </ul>
+    // </ul>
   )}
+  </div>
 </div>
 );
 };
