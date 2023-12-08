@@ -30,7 +30,15 @@ const App = () => {
   }
   
   // Add the toggleComplete code here
-
+    function toggleComplete(id) {
+      let updatedTodos = [...todos].map((todo) =>{
+      if (todo.id === id) {
+        todo.completed = !todo.completed
+      }
+      return todo;
+    });
+      setTodos(updatedTodos);
+    }
   
   // Add the submitEdits code here
 
@@ -43,10 +51,13 @@ return(
 <button type ="submit">Add Todo</button>
 </form>
   {todos.map((todo) =>
-    <ul className="todo" key={todo.id}>
-    <li className="todo-text">{todo.text}</li>
+    <div className="todo" key={todo.id}>
+    <div className="todo-text">
+      {todo.text}
+      <input type="checkbox" id="completed" checked={todo.completed} onChange={() => toggleComplete(todo.id)} />
+    </div>
     <button onClick={() => deleteToDo(todo.id)}>Delete</button>
-    </ul>
+    </div>
   )}
 </div>
 );
